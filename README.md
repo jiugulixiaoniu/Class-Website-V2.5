@@ -1,51 +1,14 @@
-# JYEZ-0902-Chinese-Evaluation-Group 📚
+# ClassWebsite V2.5 📚
 
 ![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
-
-专业的语文学分管理与评估系统，致力于通过科学的积分机制激发学习兴趣，促进团队协作，提升语文学习效果。
 
 ## ✨ 核心功能
 
 | 功能模块 | 详细说明 |
 |---------|---------|
-| 🏆 团队协作 | 支持团队学分管理，促进小组成员间的良性竞争与合作 |
-| 📊 数据分析 | 多维度数据分析与可视化，助力制定针对性提升策略 |
-| 🔋 激励机制 | 完善的学分奖励体系，增强学习动力与成就感 |
-| 📝 详细记录 | 完整记录学习活动和学分变动，支持历史数据查询与导出 |
+| 📝 详细记录 | 完整记录学习活动，记录美好生活 |
 | 📱 响应式设计 | 适配各种设备屏幕，随时随地管理学习数据 |
-
-## 📁 项目结构
-
-```
-jyez0902ceg/
-├── article/                 # 通知公告与报告文档
-│   ├── md/                  # Markdown 源文件
-│   ├── 202510061035.html    # 清华队积分更正申明
-│   ├── 202510050807.html    # 清华队积分报告
-│   └── 202510081710.html    # 北大队积分报告
-├── Sidebar/
-│   └── Rules.html           # 数据管理规则文档
-├── index.html               # 系统首页
-├── LICENSE                  # GPLv3 开源协议
-└── .gitignore               # Git 忽略配置
-```
-
-## 📋 数据管理规范
-
-### 存档要求
-- **存档内容**：《月度积分表》(Excel+PDF)、活动佐证材料、《自核报告》、《公示结果确认书》等
-- **存档方式**：线上(GitHub加密存储) + 线下(打印装订)双重模式
-- **备份要求**：电子材料至少备份2份，存储于不同平台/设备，每季度检查有效性
-- **命名规范**：`[队名]-[年份]-[月份]-[材料名称]`，例如：`清华队-2025-09-月度积分表（定稿版）`
-
-### 数据更正流程
-遵循严格的更正规范，确保数据修改过程合法、透明、可追溯，详细规则参见 [数据管理规则](https://jiugulixiaoniu.github.io/jyez0902ceg/Sidebar/Rules.html)
-
-## 🚀 快速使用
-
-1. 访问系统首页：[index.html](https://jiugulixiaoniu.github.io/jyez0902ceg/index.html)
-
 
 ## 📈 数据概览
 
