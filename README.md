@@ -18,7 +18,7 @@
 ## 📁 项目结构
 
 ```
-jiuerban/
+jyez0902ceg/
 ├── article/                 # 通知公告与报告文档
 │   ├── md/                  # Markdown 源文件
 │   ├── 202510061035.html    # 清华队积分更正申明
@@ -40,11 +40,11 @@ jiuerban/
 - **命名规范**：`[队名]-[年份]-[月份]-[材料名称]`，例如：`清华队-2025-09-月度积分表（定稿版）`
 
 ### 数据更正流程
-遵循严格的更正规范，确保数据修改过程合法、透明、可追溯，详细规则参见 [数据管理规则](https://jiugulixiaoniu.github.io/jiuerban/Sidebar/Rules.html)
+遵循严格的更正规范，确保数据修改过程合法、透明、可追溯，详细规则参见 [数据管理规则](https://jiugulixiaoniu.github.io/jyez0902ceg/Sidebar/Rules.html)
 
 ## 🚀 快速使用
 
-1. 访问系统首页：[index.html](https://jiugulixiaoniu.github.io/jiuerban/index.html)
+1. 访问系统首页：[index.html](https://jiugulixiaoniu.github.io/jyez0902ceg/index.html)
 
 
 ## 📈 数据概览
@@ -56,11 +56,19 @@ jiuerban/
 
 ## 📞 联系我们
 
-- 📧 联系方式：请通过项目Issue联系
+- 📧 邮箱：Lavachicken2512@outlook.com
 
 ## 📜 开源协议
 
-本项目采用 [GNU General Public License v3.0](LICENSE) 协议开源，允许自由分发和修改，但必须保持开源并保留原作者信息。
+本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt) 协议开源，这意味着您可以：
+
+共享 — 复制、发行本作品
+改编 — 修改、转换、基于本作品进行再创作
+但你同时需要遵守以下条件：
+
+署名 — 你必须注明原始作者（MillenTec）和出处，并提供原始协议链接
+非商业性使用 — 你不得将本作品用于商业用途
+简单来说，只要您不将它用于商业用途，并且署上原作者的名字，您可以将它用于任何用途（具体还请查看CC BY-NC 4.0 License）
 
 ---
 
@@ -110,6 +118,7 @@ jiuerban/
 
 关于贡献的任何疑问，可通过以下方式联系：
 - 提交 `question` 标签的 Issue
+- 邮件：Lavachicken2512@outlook.com
 
 ---
 
