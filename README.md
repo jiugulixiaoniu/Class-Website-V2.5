@@ -3,19 +3,14 @@
 ![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
 
+查看宣传片：[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
+
 ## ✨ 核心功能
 
 | 功能模块 | 详细说明 |
 |---------|---------|
 | 📝 详细记录 | 完整记录学习活动，记录美好生活 |
 | 📱 响应式设计 | 适配各种设备屏幕，随时随地管理学习数据 |
-
-## 📈 数据概览
-
-系统提供实时数据统计与可视化展示，帮助师生：
-- 直观了解学分分布情况
-- 掌握学习动态与进度
-- 发现学习优势与不足
 
 ## 📞 联系我们
 
