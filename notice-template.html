@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知公告 - 九（2）班 语文积分表系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <!-- marked 核心库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                        notice: '#FBBF24'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+            .text-gradient { background-clip: text; -webkit-background-clip: text; color: transparent; }
+            .notice-card-hover { transition: all 0.3s ease; }
+            .notice-card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1); }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
+                            <span class="block text-xs text-gray-500">语文积分表系统</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">积分查询</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据分析</a>
+                        <a href="#match-reports" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">比赛报表</a>
+                        <a href="../Sidebar/Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据管理规则</a>
+                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">通知公告</a>
+                        <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
+            <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
+            <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">积分查询</a>
+            <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据分析</a>
+            <a href="#match-reports" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">比赛报表</a>
+            <a href="../Sidebar/Rules.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据管理规则</a>
+            <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium bg-blue-50">通知公告</a>
+            <a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+        </div>
+    </nav>
+
+    <!-- 主内容区：Markdown 将渲染到这里 -->
+    <main id="notice-content" class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+        <!-- 加载提示 -->
+        <div id="loading" class="text-center text-gray-500">正在加载通知内容...</div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                            <span class="block text-xs text-gray-400">语文积分表系统</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的语文积分管理与评估系统，助力学习成长与团队协作。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">积分查询</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">数据分析</a></li>
+                        <li><a href="#match-reports" class="text-gray-400 hover:text-white transition-colors duration-200">比赛报表</a></li>
+                        <li><a href="../Sidebar/Rules.html" class="text-gray-400 hover:text-white transition-colors duration-200">数据管理规则</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">通知公告</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">使用指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">常见问题</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资料</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">更新日志</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">规则附件下载</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">联系管理员</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 核心逻辑：读取 Markdown 并渲染 -->
+    <script>
+        /* ========== 通用交互（导航、返回顶部） ========== */
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        /* ========== Markdown 加载与渲染 ========== */
+        // 根据当前 HTML 文件名生成对应 .md 文件名
+        const mdFile = location.pathname.split('/').pop().replace(/\.html?$/, '.md');
+
+        fetch(mdFile)
+            .then(res => {
+                if (!res.ok) throw new Error('通知文件不存在');
+                return res.text();
+            })
+            .then(md => {
+                // 支持 GitHub 表格、换行等扩展
+                const html = marked.parse(md, { breaks: true, gfm: true });
+                document.getElementById('notice-content').innerHTML = `
+                    <article class="prose prose-lg max-w-none text-gray-800 leading-relaxed">
+                        ${html}
+                    </article>
+                `;
+            })
+            .catch(err => {
+                document.getElementById('notice-content').innerHTML = `
+                    <div class="text-center text-red-500">
+                        <i class="fas fa-exclamation-triangle text-3xl mb-2"></i>
+                        <p class="text-lg">未能加载通知内容</p>
+                        <p class="text-sm text-gray-500">${err.message}</p>
+                    </div>
+                `;
+            })
+            .finally(() => {
+                document.getElementById('loading').remove();
+            });
+    </script>
+</body>
+</html>

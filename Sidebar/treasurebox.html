@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百宝箱 - 九（2）班 班级网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                        warning: '#F59E0B',
+                        danger: '#EF4444'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.15);
+            }
+            .tool-card {
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            .tool-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
+            .tool-card:hover::before {
+                left: 100%;
+            }
+            .tool-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+            .typing-cursor::after {
+                content: '|';
+                animation: blink 1s infinite;
+                color: #3B82F6;
+            }
+            @keyframes blink {
+                0%, 50% { opacity: 1; }
+                51%, 100% { opacity: 0; }
+            }
+            .echo-message {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
+                            <span class="block text-xs text-gray-500">班级网站</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
+                        <a href="../index.html#class-info" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级介绍</a>
+                        <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级动态</a>
+                        <a href="Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级规章</a>
+                        <a href="ClassStyle.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级风采</a>
+                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">百宝箱</a>
+                        <a href="about.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="../index.html#class-info" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级介绍</a>
+                <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级动态</a>
+                <a href="Rules.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级规章</a>
+                <a href="ClassStyle.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级风采</a>
+                <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium bg-blue-50">百宝箱</a>
+                <a href="about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+                    班级百宝箱
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    精选实用工具和学习资源，助力同学们高效学习与快乐成长
+                </p>
+                <div class="inline-block bg-blue-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-toolbox mr-2"></i>实用工具，学习助手
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实用工具 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-tools text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">实用工具</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 工具卡片1：计算器 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-calculator text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">计算器</h3>
+                        <p class="text-gray-600 mb-4">科学计算器，支持基础运算和函数计算</p>
+                        <button onclick="openCalculator()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 工具卡片2：单位转换 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-exchange-alt text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">单位转换</h3>
+                        <p class="text-gray-600 mb-4">长度、重量、温度等多种单位互相转换</p>
+                        <button onclick="openConverter()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 工具卡片3：计时器 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-stopwatch text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">计时器</h3>
+                        <p class="text-gray-600 mb-4">正计时和倒计时功能，适合学习计时使用</p>
+                        <button onclick="openTimer()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 工具卡片4：随机数生成器 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-warning/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-dice text-warning text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">随机数生成器</h3>
+                        <p class="text-gray-600 mb-4">生成指定范围内的随机数，适合抽签使用</p>
+                        <button onclick="openRandomGenerator()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 工具卡片5：倒日历 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-danger/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-calendar-alt text-danger text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">倒日历</h3>
+                        <p class="text-gray-600 mb-4">计算距离重要日期还有多少天</p>
+                        <button onclick="openCountdown()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 工具卡片6：BMI计算器 -->
+                    <div class="tool-card bg-white rounded-xl p-6 shadow-md">
+                        <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-weight text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">BMI计算器</h3>
+                        <p class="text-gray-600 mb-4">计算身体质量指数，了解健康状况</p>
+                        <button onclick="openBMI()" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            使用工具 <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学习网站 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-globe text-secondary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">学习网站</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 网站卡片1：国家中小学智慧教育平台 -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-graduation-cap text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">国家中小学智慧教育平台</h3>
+                        <p class="text-gray-600 mb-4">教育部官方学习平台，提供优质教育资源</p>
+                        <a href="https://www.zxx.edu.cn/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- 网站卡片2：中国大学MOOC -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-university text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">中国大学MOOC</h3>
+                        <p class="text-gray-600 mb-4">国内优质慕课平台，提前了解大学课程</p>
+                        <a href="https://www.icourse163.org/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- 网站卡片3：学而思网校 -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-book-open text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">学而思网校</h3>
+                        <p class="text-gray-600 mb-4">知名在线教育平台，提供各学科辅导</p>
+                        <a href="https://www.xueersi.com/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- 网站卡片4：作业帮 -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-warning/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-question-circle text-warning text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">作业帮</h3>
+                        <p class="text-gray-600 mb-4">拍照搜题、作业辅导、学习资料下载</p>
+                        <a href="https://www.zybang.com/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- 网站卡片5：有道词典 -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-danger/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-language text-danger text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">有道词典</h3>
+                        <p class="text-gray-600 mb-4">专业英语学习工具，提供翻译和词汇学习</p>
+                        <a href="https://dict.youdao.com/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- 网站卡片6：中国科普博览 -->
+                    <div class="bg-light rounded-xl p-6 shadow-md card-hover">
+                        <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-flask text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">中国科普博览</h3>
+                        <p class="text-gray-600 mb-4">中科院科普平台，探索科学奥秘</p>
+                        <a href="https://www.kepu.net.cn/" target="_blank" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                            访问网站 <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 回声洞 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-comment-dots text-accent text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">回声洞</h2>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <div class="mb-6">
+                        <p class="text-gray-600 mb-4">在这里留下你的想法、心情或愿望，它会以打字效果展示出来，就像回声一样在洞中回荡。</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="text" id="echoInput" placeholder="输入你想说的话..." class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <button onclick="sendEcho()" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                                <i class="fas fa-paper-plane mr-2"></i>发送回声
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="echoDisplay" class="bg-gray-50 rounded-lg p-6 min-h-[200px] max-h-[400px] overflow-y-auto">
+                        <div class="text-gray-400 text-center">你的回声将在这里显示...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具弹窗容器 -->
+    <div id="toolModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="toolTitle" class="text-xl font-semibold text-dark"></h3>
+                    <button onclick="closeToolModal()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="toolContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                            <span class="block text-xs text-gray-400">班级网站</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的班级管理与交流平台，助力班级建设与同学成长。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
+                        <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
+                        <li><a href="Rules.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级规章</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">荣誉展示</a></li>
+                        <li><a href="notice.html" class="text-gray-400 hover:text-white transition-colors duration-200">通知公告</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">联系管理员</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // 移动端菜单
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // 工具弹窗
+        const toolModal = document.getElementById('toolModal');
+        const toolTitle = document.getElementById('toolTitle');
+        const toolContent = document.getElementById('toolContent');
+
+        function closeToolModal() {
+            toolModal.classList.add('hidden');
+        }
+
+        // 计算器工具
+        function openCalculator() {
+            toolTitle.textContent = '计算器';
+            toolContent.innerHTML = `
+                <div class="calculator">
+                    <input type="text" id="calcDisplay" class="w-full p-3 mb-4 text-right text-xl border border-gray-300 rounded-lg" readonly>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="clearCalc()" class="col-span-2 p-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">C</button>
+                        <button onclick="appendToCalc('/')" class="p-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">÷</button>
+                        <button onclick="appendToCalc('*')" class="p-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">×</button>
+                        
+                        <button onclick="appendToCalc('7')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">7</button>
+                        <button onclick="appendToCalc('8')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">8</button>
+                        <button onclick="appendToCalc('9')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">9</button>
+                        <button onclick="appendToCalc('-')" class="p-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">-</button>
+                        
+                        <button onclick="appendToCalc('4')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">4</button>
+                        <button onclick="appendToCalc('5')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">5</button>
+                        <button onclick="appendToCalc('6')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">6</button>
+                        <button onclick="appendToCalc('+')" class="p-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">+</button>
+                        
+                        <button onclick="appendToCalc('1')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">1</button>
+                        <button onclick="appendToCalc('2')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">2</button>
+                        <button onclick="appendToCalc('3')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">3</button>
+                        <button onclick="calculate()" class="row-span-2 p-3 bg-primary text-white hover:bg-primary/90 rounded-lg font-medium">=</button>
+                        
+                        <button onclick="appendToCalc('0')" class="col-span-2 p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">0</button>
+                        <button onclick="appendToCalc('.')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg">.</button>
+                    </div>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function appendToCalc(value) {
+            document.getElementById('calcDisplay').value += value;
+        }
+
+        function clearCalc() {
+            document.getElementById('calcDisplay').value = '';
+        }
+
+        function calculate() {
+            try {
+                const result = eval(document.getElementById('calcDisplay').value);
+                document.getElementById('calcDisplay').value = result;
+            } catch (e) {
+                document.getElementById('calcDisplay').value = 'Error';
+            }
+        }
+
+        // 单位转换工具
+        function openConverter() {
+            toolTitle.textContent = '单位转换';
+            toolContent.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">转换类型</label>
+                        <select id="conversionType" onchange="updateConversionUnits()" class="w-full p-2 border border-gray-300 rounded-lg">
+                            <option value="length">长度</option>
+                            <option value="weight">重量</option>
+                            <option value="temperature">温度</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">从</label>
+                        <div class="flex gap-2">
+                            <input type="number" id="fromValue" class="flex-1 p-2 border border-gray-300 rounded-lg" placeholder="输入数值">
+                            <select id="fromUnit" class="p-2 border border-gray-300 rounded-lg">
+                                <option value="m">米</option>
+                                <option value="cm">厘米</option>
+                                <option value="km">千米</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">到</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="toValue" class="flex-1 p-2 border border-gray-300 rounded-lg" readonly placeholder="转换结果">
+                            <select id="toUnit" class="p-2 border border-gray-300 rounded-lg">
+                                <option value="cm">厘米</option>
+                                <option value="m">米</option>
+                                <option value="km">千米</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button onclick="convert()" class="w-full p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">转换</button>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function updateConversionUnits() {
+            const type = document.getElementById('conversionType').value;
+            const fromUnit = document.getElementById('fromUnit');
+            const toUnit = document.getElementById('toUnit');
+            
+            if (type === 'length') {
+                fromUnit.innerHTML = '<option value="m">米</option><option value="cm">厘米</option><option value="km">千米</option>';
+                toUnit.innerHTML = '<option value="cm">厘米</option><option value="m">米</option><option value="km">千米</option>';
+            } else if (type === 'weight') {
+                fromUnit.innerHTML = '<option value="kg">千克</option><option value="g">克</option><option value="t">吨</option>';
+                toUnit.innerHTML = '<option value="g">克</option><option value="kg">千克</option><option value="t">吨</option>';
+            } else if (type === 'temperature') {
+                fromUnit.innerHTML = '<option value="c">摄氏度</option><option value="f">华氏度</option><option value="k">开尔文</option>';
+                toUnit.innerHTML = '<option value="f">华氏度</option><option value="c">摄氏度</option><option value="k">开尔文</option>';
+            }
+        }
+
+        function convert() {
+            const fromValue = parseFloat(document.getElementById('fromValue').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            
+            if (isNaN(fromValue)) {
+                document.getElementById('toValue').value = '请输入有效数值';
+                return;
+            }
+            
+            let result;
+            
+            // 长度转换
+            if (fromUnit === 'm' && toUnit === 'cm') result = fromValue * 100;
+            else if (fromUnit === 'm' && toUnit === 'km') result = fromValue / 1000;
+            else if (fromUnit === 'cm' && toUnit === 'm') result = fromValue / 100;
+            else if (fromUnit === 'cm' && toUnit === 'km') result = fromValue / 100000;
+            else if (fromUnit === 'km' && toUnit === 'm') result = fromValue * 1000;
+            else if (fromUnit === 'km' && toUnit === 'cm') result = fromValue * 100000;
+            
+            // 重量转换
+            else if (fromUnit === 'kg' && toUnit === 'g') result = fromValue * 1000;
+            else if (fromUnit === 'kg' && toUnit === 't') result = fromValue / 1000;
+            else if (fromUnit === 'g' && toUnit === 'kg') result = fromValue / 1000;
+            else if (fromUnit === 'g' && toUnit === 't') result = fromValue / 1000000;
+            else if (fromUnit === 't' && toUnit === 'kg') result = fromValue * 1000;
+            else if (fromUnit === 't' && toUnit === 'g') result = fromValue * 1000000;
+            
+            // 温度转换
+            else if (fromUnit === 'c' && toUnit === 'f') result = fromValue * 9/5 + 32;
+            else if (fromUnit === 'c' && toUnit === 'k') result = fromValue + 273.15;
+            else if (fromUnit === 'f' && toUnit === 'c') result = (fromValue - 32) * 5/9;
+            else if (fromUnit === 'f' && toUnit === 'k') result = (fromValue - 32) * 5/9 + 273.15;
+            else if (fromUnit === 'k' && toUnit === 'c') result = fromValue - 273.15;
+            else if (fromUnit === 'k' && toUnit === 'f') result = (fromValue - 273.15) * 9/5 + 32;
+            
+            else result = fromValue; // 相同单位
+            
+            document.getElementById('toValue').value = result.toFixed(4);
+        }
+
+        // 计时器工具
+        let timerInterval;
+        let timerSeconds = 0;
+        let isTimerRunning = false;
+
+        function openTimer() {
+            toolTitle.textContent = '计时器';
+            toolContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="text-center">
+                        <div id="timerDisplay" class="text-4xl font-mono font-bold text-primary mb-4">00:00:00</div>
+                    </div>
+                    
+                    <div class="flex justify-center gap-2">
+                        <button id="timerStartBtn" onclick="startTimer()" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                            <i class="fas fa-play mr-2"></i>开始
+                        </button>
+                        <button id="timerPauseBtn" onclick="pauseTimer()" class="px-4 py-2 bg-warning text-white rounded-lg hover:bg-warning/90 transition-colors" disabled>
+                            <i class="fas fa-pause mr-2"></i>暂停
+                        </button>
+                        <button onclick="resetTimer()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                            <i class="fas fa-redo mr-2"></i>重置
+                        </button>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">倒计时（秒）</label>
+                        <div class="flex gap-2">
+                            <input type="number" id="countdownInput" class="flex-1 p-2 border border-gray-300 rounded-lg" placeholder="输入秒数">
+                            <button onclick="startCountdown()" class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition-colors">
+                                开始倒计时
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div id="countdownDisplay" class="text-2xl font-mono font-bold text-secondary">00:00</div>
+                    </div>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function startTimer() {
+            if (!isTimerRunning) {
+                isTimerRunning = true;
+                document.getElementById('timerStartBtn').disabled = true;
+                document.getElementById('timerPauseBtn').disabled = false;
+                
+                timerInterval = setInterval(() => {
+                    timerSeconds++;
+                    updateTimerDisplay();
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            if (isTimerRunning) {
+                isTimerRunning = false;
+                document.getElementById('timerStartBtn').disabled = false;
+                document.getElementById('timerPauseBtn').disabled = true;
+                clearInterval(timerInterval);
+            }
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timerSeconds = 0;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const hours = Math.floor(timerSeconds / 3600);
+            const minutes = Math.floor((timerSeconds % 3600) / 60);
+            const seconds = timerSeconds % 60;
+            
+            const display = 
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('timerDisplay').textContent = display;
+        }
+
+        let countdownInterval;
+        let countdownSeconds = 0;
+
+        function startCountdown() {
+            const input = document.getElementById('countdownInput');
+            countdownSeconds = parseInt(input.value);
+            
+            if (isNaN(countdownSeconds) || countdownSeconds <= 0) {
+                input.value = '';
+                return;
+            }
+            
+            clearInterval(countdownInterval);
+            
+            countdownInterval = setInterval(() => {
+                countdownSeconds--;
+                updateCountdownDisplay();
+                
+                if (countdownSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdownDisplay').textContent = '时间到！';
+                    document.getElementById('countdownDisplay').classList.add('text-danger');
+                }
+            }, 1000);
+            
+            updateCountdownDisplay();
+        }
+
+        function updateCountdownDisplay() {
+            const minutes = Math.floor(countdownSeconds / 60);
+            const seconds = countdownSeconds % 60;
+            
+            const display = 
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+            
+            document.getElementById('countdownDisplay').textContent = display;
+            document.getElementById('countdownDisplay').classList.remove('text-danger');
+        }
+
+        // 随机数生成器工具
+        function openRandomGenerator() {
+            toolTitle.textContent = '随机数生成器';
+            toolContent.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">最小值</label>
+                        <input type="number" id="minValue" class="w-full p-2 border border-gray-300 rounded-lg" value="1">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">最大值</label>
+                        <input type="number" id="maxValue" class="w-full p-2 border border-gray-300 rounded-lg" value="100">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">生成数量</label>
+                        <input type="number" id="countValue" class="w-full p-2 border border-gray-300 rounded-lg" value="1" min="1" max="10">
+                    </div>
+                    
+                    <button onclick="generateRandom()" class="w-full p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">生成随机数</button>
+                    
+                    <div id="randomResult" class="p-4 bg-gray-50 rounded-lg min-h-[60px] flex items-center justify-center">
+                        <span class="text-gray-400">点击生成随机数</span>
+                    </div>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function generateRandom() {
+            const min = parseInt(document.getElementById('minValue').value);
+            const max = parseInt(document.getElementById('maxValue').value);
+            const count = parseInt(document.getElementById('countValue').value);
+            
+            if (isNaN(min) || isNaN(max) || isNaN(count) || min >= max || count < 1 || count > 10) {
+                document.getElementById('randomResult').innerHTML = '<span class="text-danger">请输入有效的参数</span>';
+                return;
+            }
+            
+            const results = [];
+            for (let i = 0; i < count; i++) {
+                results.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            
+            document.getElementById('randomResult').innerHTML = `
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary">${results.join(', ')}</div>
+                    <div class="text-sm text-gray-500 mt-2">范围: ${min}-${max}</div>
+                </div>
+            `;
+        }
+
+        // 倒日历工具
+        function openCountdown() {
+            toolTitle.textContent = '倒日历';
+            toolContent.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">选择目标日期</label>
+                        <input type="date" id="targetDate" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">事件名称</label>
+                        <input type="text" id="eventName" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="例如: 高考">
+                    </div>
+                    
+                    <button onclick="calculateCountdown()" class="w-full p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">计算</button>
+                    
+                    <div id="countdownResult" class="p-4 bg-gray-50 rounded-lg min-h-[80px] flex items-center justify-center">
+                        <span class="text-gray-400">选择日期并计算</span>
+                    </div>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function calculateCountdown() {
+            const targetDate = new Date(document.getElementById('targetDate').value);
+            const eventName = document.getElementById('eventName').value || '目标日期';
+            const today = new Date();
+            
+            if (isNaN(targetDate.getTime())) {
+                document.getElementById('countdownResult').innerHTML = '<span class="text-danger">请选择有效日期</span>';
+                return;
+            }
+            
+            const diffTime = targetDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            let result;
+            if (diffDays < 0) {
+                result = `<div class="text-center">
+                    <div class="text-xl font-bold text-danger">${eventName} 已过去 ${Math.abs(diffDays)} 天</div>
+                </div>`;
+            } else if (diffDays === 0) {
+                result = `<div class="text-center">
+                    <div class="text-xl font-bold text-primary">今天就是 ${eventName}！</div>
+                </div>`;
+            } else {
+                const years = Math.floor(diffDays / 365);
+                const months = Math.floor((diffDays % 365) / 30);
+                const days = diffDays % 30;
+                
+                let timeString = '';
+                if (years > 0) timeString += `${years}年 `;
+                if (months > 0) timeString += `${months}个月 `;
+                timeString += `${days}天`;
+                
+                result = `<div class="text-center">
+                    <div class="text-xl font-bold text-primary">距离 ${eventName} 还有</div>
+                    <div class="text-2xl font-bold text-primary mt-2">${timeString}</div>
+                    <div class="text-sm text-gray-500 mt-2">总计 ${diffDays} 天</div>
+                </div>`;
+            }
+            
+            document.getElementById('countdownResult').innerHTML = result;
+        }
+
+        // BMI计算器工具
+        function openBMI() {
+            toolTitle.textContent = 'BMI计算器';
+            toolContent.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">身高 (厘米)</label>
+                        <input type="number" id="height" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="例如: 170">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">体重 (千克)</label>
+                        <input type="number" id="weight" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="例如: 65">
+                    </div>
+                    
+                    <button onclick="calculateBMI()" class="w-full p-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">计算BMI</button>
+                    
+                    <div id="bmiResult" class="p-4 bg-gray-50 rounded-lg min-h-[100px] flex items-center justify-center">
+                        <span class="text-gray-400">输入身高体重并计算</span>
+                    </div>
+                    
+                    <div class="text-sm text-gray-600">
+                        <p class="font-medium mb-2">BMI参考标准：</p>
+                        <div class="space-y-1">
+                            <div class="flex justify-between">
+                                <span>偏瘦：</span>
+                                <span>&lt; 18.5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>正常：</span>
+                                <span>18.5 - 23.9</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>超重：</span>
+                                <span>24 - 27.9</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>肥胖：</span>
+                                <span>≥ 28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            toolModal.classList.remove('hidden');
+        }
+
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                document.getElementById('bmiResult').innerHTML = '<span class="text-danger">请输入有效的身高和体重</span>';
+                return;
+            }
+            
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+            
+            let category, color;
+            if (bmi < 18.5) {
+                category = '偏瘦';
+                color = 'text-blue-600';
+            } else if (bmi < 24) {
+                category = '正常';
+                color = 'text-green-600';
+            } else if (bmi < 28) {
+                category = '超重';
+                color = 'text-warning';
+            } else {
+                category = '肥胖';
+                color = 'text-danger';
+            }
+            
+            document.getElementById('bmiResult').innerHTML = `
+                <div class="text-center">
+                    <div class="text-2xl font-bold ${color}">${bmi.toFixed(1)}</div>
+                    <div class="text-lg ${color}">${category}</div>
+                </div>
+            `;
+        }
+
+        // 回声洞功能
+        const echoInput = document.getElementById('echoInput');
+        const echoDisplay = document.getElementById('echoDisplay');
+        let echoMessages = [];
+
+        function sendEcho() {
+            const message = echoInput.value.trim();
+            if (!message) return;
+            
+            // 添加消息到数组
+            echoMessages.push({
+                text: message,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            
+            // 清空输入框
+            echoInput.value = '';
+            
+            // 显示消息
+            displayEchoMessages();
+        }
+
+        function displayEchoMessages() {
+            if (echoMessages.length === 0) {
+                echoDisplay.innerHTML = '<div class="text-gray-400 text-center">你的回声将在这里显示...</div>';
+                return;
+            }
+            
+            let html = '';
+            echoMessages.forEach((msg, index) => {
+                html += `
+                    <div class="echo-message mb-3 p-3 bg-white rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-xs text-gray-500">${msg.timestamp}</span>
+                            <button onclick="deleteEcho(${index})" class="text-gray-400 hover:text-danger">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="typing-text" data-text="${msg.text}"></div>
+                    </div>
+                `;
+            });
+            
+            echoDisplay.innerHTML = html;
+            
+            // 启动打字效果
+            setTimeout(() => {
+                document.querySelectorAll('.typing-text').forEach(elem => {
+                    startTypingEffect(elem);
+                });
+            }, 100);
+        }
+
+        function startTypingEffect(element) {
+            const text = element.getAttribute('data-text');
+            let index = 0;
+            element.innerHTML = '';
+            
+            const typeInterval = setInterval(() => {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(typeInterval);
+                    element.classList.add('typing-cursor');
+                    setTimeout(() => {
+                        element.classList.remove('typing-cursor');
+                    }, 1000);
+                }
+            }, 50);
+        }
+
+        function deleteEcho(index) {
+            echoMessages.splice(index, 1);
+            displayEchoMessages();
+        }
+
+        // 回车发送回声
+        echoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendEcho();
+            }
+        });
+    </script>
+</body>
+</html>

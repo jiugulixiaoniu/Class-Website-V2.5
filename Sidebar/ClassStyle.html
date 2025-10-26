@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级风采 - 九（2）班 班级网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                        warning: '#F59E0B',
+                        danger: '#EF4444'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.15);
+            }
+            .gallery-item {
+                position: relative;
+                overflow: hidden;
+            }
+            .gallery-item img {
+                transition: transform 0.5s ease;
+            }
+            .gallery-item:hover img {
+                transform: scale(1.05);
+            }
+            .gallery-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+                padding: 20px 15px 15px;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            .gallery-item:hover .gallery-overlay {
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
+                            <span class="block text-xs text-gray-500">班级网站</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
+                        <a href="../index.html#class-info" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级介绍</a>
+                        <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级动态</a>
+                        <a href="Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级规章</a>
+                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">班级风采</a>
+                        <a href="treasurebox.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">百宝箱</a>
+                        <a href="about.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
+                <a href="../index.html#class-info" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级介绍</a>
+                <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级动态</a>
+                <a href="Rules.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级规章</a>
+                <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium bg-blue-50">班级风采</a>
+                <a href="treasurebox.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">百宝箱</a>
+                <a href="about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+                    班级风采
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    记录我们班级的精彩瞬间，展示同学们的才华与活力
+                </p>
+                <div class="inline-block bg-blue-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-camera mr-2"></i>精彩瞬间，永恒回忆
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 班级活动照片轮播 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-images text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">班级活动集锦</h2>
+                </div>
+
+                <div class="swiper activitySwiper rounded-xl overflow-hidden shadow-lg">
+                    <div class="swiper-wrapper">
+                        <!-- 滑块1 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-80 md:h-96">
+                                <img src="https://picsum.photos/seed/class-activity-1/1200/600.jpg" alt="秋季运动会" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold mb-2">秋季运动会</h3>
+                                    <p class="text-white/90">2025年9月，我班在秋季运动会中荣获团体第二名</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 滑块2 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-80 md:h-96">
+                                <img src="https://picsum.photos/seed/class-activity-2/1200/600.jpg" alt="文艺汇演" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold mb-2">校园文艺汇演</h3>
+                                    <p class="text-white/90">2025年10月，我班表演的舞台剧《青春无悔》获得一等奖</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 滑块3 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-80 md:h-96">
+                                <img src="https://picsum.photos/seed/class-activity-3/1200/600.jpg" alt="志愿服务" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold mb-2">社区志愿服务</h3>
+                                    <p class="text-white/90">2025年9月，我班同学参与社区环境整治志愿服务活动</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 滑块4 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-80 md:h-96">
+                                <img src="https://picsum.photos/seed/class-activity-4/1200/600.jpg" alt="科技竞赛" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold mb-2">科技创新大赛</h3>
+                                    <p class="text-white/90">2025年10月，我班科技创新小组在市级比赛中获得二等奖</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 班级成员风采 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-user-graduate text-secondary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">班级成员风采</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- 成员卡片1 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-1/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">张明</h3>
+                            <p class="text-sm text-gray-600 mb-2">班长</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">学习标兵</span>
+                                <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">数学竞赛</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片2 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-2/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">李华</h3>
+                            <p class="text-sm text-gray-600 mb-2">学习委员</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">语文之星</span>
+                                <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">作文比赛</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片3 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-3/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">王芳</h3>
+                            <p class="text-sm text-gray-600 mb-2">文艺委员</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">舞蹈特长</span>
+                                <span class="text-xs bg-warning/10 text-warning px-2 py-1 rounded-full">文艺汇演</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片4 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-4/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">赵强</h3>
+                            <p class="text-sm text-gray-600 mb-2">体育委员</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">篮球校队</span>
+                                <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">运动会</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片5 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-5/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">刘丽</h3>
+                            <p class="text-sm text-gray-600 mb-2">宣传委员</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">美术特长</span>
+                                <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">黑板报</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片6 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-6/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">陈杰</h3>
+                            <p class="text-sm text-gray-600 mb-2">科技小组长</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">编程达人</span>
+                                <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">科技竞赛</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片7 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-7/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">周敏</h3>
+                            <p class="text-sm text-gray-600 mb-2">英语课代表</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">英语演讲</span>
+                                <span class="text-xs bg-warning/10 text-warning px-2 py-1 rounded-full">口语比赛</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员卡片8 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student-8/400/300.jpg" alt="学生照片" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-dark mb-1">吴涛</h3>
+                            <p class="text-sm text-gray-600 mb-2">劳动委员</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">志愿服务</span>
+                                <span class="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">环保卫士</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 班级荣誉墙 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-trophy text-accent text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">班级荣誉墙</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 荣誉卡片1 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-warning">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-warning/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-medal text-warning text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">秋季运动会团体第二名</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年9月，校秋季运动会</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年9月15日</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 荣誉卡片2 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-primary">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-award text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">文艺汇演一等奖</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年10月，校园文化艺术节</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年10月8日</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 荣誉卡片3 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-secondary">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-certificate text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">科技创新大赛二等奖</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年10月，市级青少年科技创新大赛</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年10月20日</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 荣誉卡片4 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-accent">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-star text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">优秀班集体</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年9月，校级评选</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年9月30日</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 荣誉卡片5 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-danger">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-danger/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-heart text-danger text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">志愿服务先进集体</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年10月，社区表彰</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年10月12日</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 荣誉卡片6 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md card-hover border-l-4 border-warning">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-warning/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-book text-warning text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">读书活动优秀组织奖</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">2025年9月，校园读书月活动</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2025年9月28日</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 班级活动照片墙 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fas fa-images text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-dark">班级活动照片墙</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- 照片项1 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-1/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">课堂讨论</h3>
+                            <p class="text-white/80 text-sm">2025年9月语文课</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项2 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-2/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">实验课</h3>
+                            <p class="text-white/80 text-sm">2025年9月物理实验</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项3 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-3/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">运动会</h3>
+                            <p class="text-white/80 text-sm">2025年9月校运会</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项4 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-4/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">文艺汇演</h3>
+                            <p class="text-white/80 text-sm">2025年10月艺术节</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项5 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-5/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">志愿服务</h3>
+                            <p class="text-white/80 text-sm">2025年9月社区服务</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项6 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-6/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">科技展览</h3>
+                            <p class="text-white/80 text-sm">2025年10月科技节</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项7 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-7/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">读书分享</h3>
+                            <p class="text-white/80 text-sm">2025年9月读书会</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 照片项8 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                        <img src="https://picsum.photos/seed/gallery-8/400/300.jpg" alt="班级活动" class="w-full h-48 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-semibold">班级团建</h3>
+                            <p class="text-white/80 text-sm">2025年10月秋游</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                            <span class="block text-xs text-gray-400">班级网站</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的班级管理与交流平台，助力班级建设与同学成长。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
+                        <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
+                        <li><a href="Rules.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级规章</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">荣誉展示</a></li>
+                        <li><a href="notice.html" class="text-gray-400 hover:text-white transition-colors duration-200">通知公告</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">联系管理员</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 初始化Swiper轮播
+        const swiper = new Swiper('.activitySwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // 移动端菜单
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - 九（2）班</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .float {
+                animation: float 6s ease-in-out infinite;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <nav class="bg-white/80 backdrop-blur shadow-sm z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
+                            <span class="block text-xs text-gray-500">语文积分表系统</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 内容区域 -->
+    <main class="flex-grow flex flex-col items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl w-full text-center">
+            <div class="relative mb-12">
+                <div class="text-[150px] font-extrabold text-gray-200 absolute -top-10 -left-10 opacity-50">404</div>
+                <div class="relative z-10 text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary to-accent text-gradient mb-6">
+                    404
+                </div>
+                <div class="float absolute top-0 right-0 w-32 h-32 text-gray-300">
+                    <i class="fas fa-file-alt text-[120px]"></i>
+                </div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">页面未找到</h2>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+                抱歉，您访问的页面不存在或已被移动。可能是链接有误，或者页面已被删除。
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                <a href="/" class="btn-primary">
+                    <i class="fas fa-home mr-2"></i>返回首页
+                </a>
+                <a href="mailto:contact@jiuerban.edu" class="btn-secondary">
+                    <i class="fas fa-envelope mr-2"></i>联系我们
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-lg inline-block">
+                <h3 class="text-lg font-semibold text-dark mb-4">您可以尝试这些链接</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="index.html" class="text-primary hover:text-accent font-medium transition-colors flex items-center">
+                        <i class="fas fa-home mr-1"></i> 首页
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-sm"></i>
+                        </div>
+                        <div class="ml-2">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="text-gray-400 text-sm mb-2">
+                        © 2025 JGL STUDIO. 保留所有权利。
+                    </p>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                        <i class="fas fa-envelope mr-1"></i> 联系管理员</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* 按钮样式 */
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+        }
+
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-dark bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+        }
+    </style>
+
+    <script>
+        // 添加页面载入动画效果
+        document.addEventListener('DOMContentLoaded', () => {
+            // 为404数字添加动画效果
+            const elements = document.querySelectorAll('.text-gradient');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
