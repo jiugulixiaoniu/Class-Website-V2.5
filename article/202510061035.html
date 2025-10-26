@@ -383,25 +383,25 @@
             });
         });
         document.getElementById('dl').onclick = () => {
-          const url = 'https://raw.githubusercontent.com/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io/main/document/9/2025年9月"清华"队积分统计表.pdf';
+          const url = '';
           fetch(url)
             .then(r => r.blob())
             .then(blob => {
               const a = document.createElement('a');
               a.href = URL.createObjectURL(blob);
-              a.download = '2025年9月“清华“队积分统计表.pdf';   // 指定保存名
+              a.download = '';   // 指定保存名
               a.click();
               URL.revokeObjectURL(a.href);
             });
         };
         document.getElementById('dl1').onclick = () => {
-          const url = 'https://raw.githubusercontent.com/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io/main/document/9/统计校正复核申明书.pdf';
+          const url = '';
           fetch(url)
             .then(r => r.blob())
             .then(blob => {
               const a = document.createElement('a');
               a.href = URL.createObjectURL(blob);
-              a.download = '2025年9月“清华“队统计校正复核申明书.pdf';   // 指定保存名
+              a.download = '';   // 指定保存名
               a.click();
               URL.revokeObjectURL(a.href);
             });

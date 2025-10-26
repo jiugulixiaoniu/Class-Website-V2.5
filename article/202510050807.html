@@ -663,16 +663,12 @@
             });
         }
         document.getElementById('dl').onclick = () => {
-          const url = 'https://raw.githubusercontent.com/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io/main/document/9/2025年9月"清华"队积分统计表.pdf';
-          fetch(url)
-            .then(r => r.blob())
-            .then(blob => {
-              const a = document.createElement('a');
-              a.href = URL.createObjectURL(blob);
-              a.download = '2025年9月“清华“队积分统计表.pdf';   // 指定保存名
-              a.click();
-              URL.revokeObjectURL(a.href);
-            });
+          // 使用本地文件路径
+          const url = '../document/9/2025年9月"清华"队积分统计表.pdf';
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = '2025年9月"清华"队积分统计表.pdf';   // 指定保存名
+          a.click();
         };
     </script>
 </body>
