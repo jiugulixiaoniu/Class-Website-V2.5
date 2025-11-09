@@ -6,10 +6,6 @@
     <title>通知公告 - 九（2）班 语文积分表系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <!-- marked 核心 -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <script src="render.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -84,25 +80,17 @@
             </div>
         </div>
     </nav>
-
-    <!-- 英雄区域（只保留标题壳） -->
     <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div class="container mx-auto">
             <div class="max-w-4xl mx-auto text-center">
-                <!-- 标题由 JS 动态注入 -->
-                <h1 id="page-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
-                    <!-- 占位 -->
-                </h1>
+                <h1 id="page-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient"></h1>
             </div>
         </div>
     </section>
-
-    <!-- 通知正文容器 -->
     <section class="py-16 bg-light">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
                 <div id="content">
-                    <!-- JS 会把整个通知卡片插到这里 -->
                 </div>
             </div>
         </div>
@@ -197,11 +185,22 @@
                 backToTop.classList.remove('opacity-100', 'visible');
             }
         });
-
+        const $ = (id) => document.getElementById(id)
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
+        const page = new URLSearchParams(window.location.search).get('page')
+        if (page) fetch(`/article/${page}.json`)
+          .then(async (data) => {
+            if (!data.ok) {
+                          $('page-title').textContent = `不存在`;
+            $('content').innerHTML = `通知不存在`;
+              return;
+            }
+            const res = await data.json()
+            $('page-title').textContent = res.title;
+            $('content').innerHTML = res.content;
+          })
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));

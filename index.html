@@ -341,44 +341,6 @@
     <!-- ===== 直接整段替换原来的 <script> 标签即可 ===== -->
 <script>
 /* =========================
-   0. 数据区（带 level & path）
-========================= */
-const notifications = [
-    {
-        title: '关于2025-2026学年秋季运动会的通知',
-        date: '2025-10-06',
-        level: 3,   // 通报
-        path: '/article/202510061035.html'
-    },
-    {
-        title: '关于“北大队”2025年9月语文学分表的报告',
-        date: '2025-10-07',
-        level: 2,   // 报告
-        path: '/article/202510081710.html'
-    },
-    {
-        title: '关于“清华队”2025年9月语文学分表的报告',
-        date: '2025-10-05',
-        level: 2,   // 报告
-        path: '/article/202510050807.html'
-    },
-    {
-        title: '25-26 学年九上第一次质量检测（语文）统分通知',
-        date: '2025-10-12',
-        level: 3,   // 报告
-        path: '/article/202510122130.html'
-    },
-    {
-        title: '25-26 学年九上第一次质量检测（语文）成绩发布',
-        date: '2025-10-13',
-        level: 3,   // 报告
-        path: '/article/202510122239.html'
-    },
-
-
-];
-
-/* =========================
    1. 工具：时间排序（倒序）
 ========================= */
 function sortByDateDesc(arr) {
@@ -395,17 +357,16 @@ function getLevelMeta(level) {
         default: return { icon: 'fa-info-circle', color: 'text-gray-500 bg-gray-100' }; // 普通
     }
 }
-
 /* =========================
    3. 通知渲染函数
 ========================= */
-function renderNotifications() {
+async function renderNotifications() {
+    const notifications = await (await fetch('/article/content.json')).json()
     const container = document.getElementById('notifications-container');
     if (!container) return;
 
     container.innerHTML = '';
     const sorted = sortByDateDesc([...notifications]); // 拷贝后排序
-
     sorted.forEach(item => {
         const meta = getLevelMeta(item.level);
         const div = document.createElement('div');
@@ -422,7 +383,7 @@ function renderNotifications() {
                     <p class="text-sm text-gray-500 mt-1">${item.date}</p>
                 </div>
             </div>
-            <a href="${item.path}" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
+            <a href="/article/index.html?page=${item.id}" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
                 点击查看 <i class="fas fa-arrow-right ml-2"></i>
             </a>`;
         container.appendChild(div);
