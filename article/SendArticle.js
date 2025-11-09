@@ -38,7 +38,7 @@ async function getUserInputWithFileSupport() {
     })).trim()
     if (userInput.startsWith('[') && userInput.endsWith(']')) {
       const filePath = userInput.slice(1, -1); 
-      console.log(`📂 检测到文件引用，正在读取文件: ${filePath}`);
+      console.log(`检测到文件引用，正在读取文件: ${filePath}`);
       try {
         const fileContent = await fs.readFile(filePath, 'utf-8');
         console.log('文件读取成功，将使用文件内容作为输入。');
@@ -48,7 +48,7 @@ async function getUserInputWithFileSupport() {
         return userInput;
       }
     }
-    console.log('✅ 您输入的是普通文本，将直接使用。');
+    console.log('您输入的是普通文本，将直接使用。');
     return userInput;
   } finally {
     rl.close();

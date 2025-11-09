@@ -84,7 +84,7 @@
         <div class="text-center text-red-500">
           <i class="fas fa-exclamation-triangle text-3xl mb-2"></i>
           <p class="text-lg">未能加载通知内容</p>
-          <p class="text-sm text-gray-500">${err}</p>
+          <p class="text-sm text-gray-500">${err.stack}</p>
         </div>`;
     });
 })();

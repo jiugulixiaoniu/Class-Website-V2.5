@@ -7,26 +7,9 @@
   <title>九（2）班 - 班级网站</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <link hreaf="./Sidebar/css/mb.1.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#3B82F6',
-                    secondary: '#10B981',
-                    accent: '#8B5CF6',
-                    dark: '#1F2937',
-                    light: '#F3F4F6',
-                },
-                fontFamily: {
-                    sans: ['Inter', 'system-ui', 'sans-serif'],
-                    display: ['Poppins', 'sans-serif'],
-                },
-            }
-        }
-    }
-  </script>
+  <script src="./Sidebar/js/tail-config.js"></script>
   <style type="text/tailwindcss">
     @layer utilities {
             .text-shadow {
@@ -69,7 +52,7 @@
         </div>
         <div class="md:hidden"><button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none"><i class="fas fa-bars text-xl"></i></button></div>
       </div>
-    </div><!-- 移动端菜单 -->
+    </div>
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full"><a href="#" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a><a href="#class-info" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级介绍</a><a href="#recent-activities" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级动态</a><a href="Sidebar/Rules.html" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级规章</a><a href="Sidebar/ClassStyle.html" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级风采</a><a href="Sidebar/treasurebox.html" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">百宝箱</a><a href="Sidebar/about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a></div>
   </nav><!-- 英雄区域 -->
   <section class="pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8">
@@ -171,7 +154,7 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">资源中心</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
+            <li><a href="/Sidebar/class-image.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">荣誉展示</a></li>
@@ -189,166 +172,8 @@
         <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2024 JGL STUDIO. 保留所有权利。</p>
       </div>
     </div>
-  </footer><!-- 返回顶部按钮 --><button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible"><i class="fas fa-arrow-up"></i></button>
-  <style>
-    /* 按钮样式 */
-    .btn-primary {
-        @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
-    }
-    
-    .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-dark bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
-    }
-    
-    .btn-accent {
-        @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
-    }
-    
-    /* 功能卡片样式 */
-    .feature-card {
-        @apply bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 card-hover;
-    }
-    
-    .feature-icon {
-        @apply w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl;
-    }
-    
-    /* 统计数字样式 */
-    .stat-card {
-        @apply p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-md hover:shadow-lg transition-all duration-300;
-    }
-    
-    .stat-number {
-        @apply text-3xl md:text-4xl font-bold text-primary mb-2;
-    }
-    
-    .stat-label {
-        @apply text-gray-600 font-medium;
-    }
-    
-    /* 联系图标样式 */
-    .contact-icon {
-        @apply w-14 h-14 rounded-full bg-light flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg;
-    }
-  </style><!-- ===== 直接整段替换原来的 <script> 标签即可 ===== -->
-  <script>
-    /* =========================
-       1. 工具：时间排序（倒序）
-    ========================= */
-    function sortByDateDesc(arr) {
-        return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
-    }
-    
-    /* =========================
-       2. 工具：根据等级返回图标类名 & 颜色
-    ========================= */
-    function getLevelMeta(level) {
-        switch (level) {
-            case 3: return { icon: 'fa-star', color: 'text-yellow-500 bg-yellow-100' }; // 活动/表彰
-            case 2: return { icon: 'fa-file-alt', color: 'text-blue-500 bg-blue-100' }; // 报告/公示
-            default: return { icon: 'fa-info-circle', color: 'text-gray-500 bg-gray-100' }; // 普通
-        }
-    }
-    /* =========================
-       3. 通知渲染函数
-    ========================= */
-    async function renderNotifications() {
-        const notifications = await (await fetch('/article/content.json')).json()
-        const container = document.getElementById('notifications-container');
-        if (!container) return;
-    
-        container.innerHTML = '';
-        const sorted = sortByDateDesc([...notifications]); // 拷贝后排序
-        sorted.forEach(item => {
-            const meta = getLevelMeta(item.level);
-            const div = document.createElement('div');
-            div.className = 'flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition';
-            div.innerHTML = `
-                <div class="flex items-start">
-                    <!-- 左侧图标 -->
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full ${meta.color} flex items-center justify-center mr-4">
-                        <i class="fas ${meta.icon}"></i>
-                    </div>
-                    <!-- 右侧文字 -->
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-900">${item.title}</h3>
-                        <p class="text-sm text-gray-500 mt-1">${item.date}</p>
-                    </div>
-                </div>
-                <a href="/article/index.html?page=${item.id}" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
-                    点击查看 <i class="fas fa-arrow-right ml-2"></i>
-                </a>`;
-            container.appendChild(div);
-        });
-    }
-    
-    /* =========================
-       4. 统计数字动画（可选，保护不变）
-    ========================= */
-    function animateNumbers() {
-        document.querySelectorAll('.stat-number').forEach(el => {
-            const target = +el.dataset.target;
-            if (!target) return;
-            const duration = 2000, stepTime = 20;
-            const totalSteps = duration / stepTime;
-            const stepSize = target / totalSteps;
-            let cur = 0;
-            const timer = setInterval(() => {
-                cur += stepSize;
-                if (cur >= target) { cur = target; clearInterval(timer); }
-                el.textContent = target > 1000 ? Math.floor(cur).toLocaleString() : Math.floor(cur);
-            }, stepTime);
-        });
-    }
-    
-    /* =========================
-       5. 导航栏滚动 + 返回顶部（原逻辑不变）
-    ========================= */
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow-md');
-            navbar.classList.remove('shadow-sm');
-        } else {
-            navbar.classList.remove('shadow-md');
-            navbar.classList.add('shadow-sm');
-        }
-        if (window.scrollY > 300) {
-            backToTop.classList.remove('opacity-0', 'invisible');
-            backToTop.classList.add('opacity-100', 'visible');
-        } else {
-            backToTop.classList.add('opacity-0', 'invisible');
-            backToTop.classList.remove('opacity-100', 'visible');
-        }
-    });
-    
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    
-    /* =========================
-       6. 移动端菜单（原逻辑不变）
-    ========================= */
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    
-    /* =========================
-       7. 页面初始化
-    ========================= */
-    document.addEventListener('DOMContentLoaded', () => {
-        renderNotifications();                       // 1. 通知渲染（已排序+图标）
-        const statCard = document.querySelector('.stat-card');
-        if (statCard) {                              // 2. 统计动画（可选）
-            const statsSection = statCard.parentElement.parentElement;
-            const observer = new IntersectionObserver(
-                entries => entries.forEach(en => { if (en.isIntersecting) { animateNumbers(); observer.unobserve(en.target); } }),
-                { threshold: 0.5 }
-            );
-            observer.observe(statsSection);
-        }
-    });
-  </script>
+  </footer><button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible"><i class="fas fa-arrow-up"></i></button>
+  <script src="./Sidebar/js/index.page.js"></script>
 </body>
 
 </html>
