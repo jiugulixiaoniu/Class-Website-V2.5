@@ -57,7 +57,7 @@
    - 提交前运行 `npm run lint` 确保无语法错误
 
 2. **版权声明**  
-   - 所有贡献内容默认采用与本项目一致的 GPLv3 协议
+   - 所有贡献内容默认采用与本项目一致的 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt) 协议
    - 引用第三方资源需提供合法授权证明
 
 3. **行为准则**  
