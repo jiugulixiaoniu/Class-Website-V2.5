@@ -93,7 +93,7 @@
         </div>
     </nav>
 
-    <!-- 主内容区：Markdown 将渲染到这里 -->
+    <!-- 主内容区：渲染Markdown到这里 -->
     <main id="notice-content" class="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
         <!-- 加载提示 -->
         <div id="loading" class="text-center text-gray-500">正在加载通知内容...</div>
@@ -197,7 +197,7 @@
         mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
         /* ========== Markdown 加载与渲染 ========== */
-        // 根据当前 HTML 文件名生成对应 .md 文件名
+        // 根据 HTML 文件名生成对应 .md 文件名
         const mdFile = location.pathname.split('/').pop().replace(/\.html?$/, '.md');
 
         fetch(mdFile)

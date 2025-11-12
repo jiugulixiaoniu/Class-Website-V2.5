@@ -430,7 +430,7 @@ function renderNotifications() {
 }
 
 /* =========================
-   4. 统计数字动画（可选，保护不变）
+   4. 统计数字动画
 ========================= */
 function animateNumbers() {
     document.querySelectorAll('.stat-number').forEach(el => {
@@ -449,7 +449,7 @@ function animateNumbers() {
 }
 
 /* =========================
-   5. 导航栏滚动 + 返回顶部（原逻辑不变）
+   5. 导航栏滚动 + 返回顶部
 ========================= */
 const navbar = document.getElementById('navbar');
 const backToTop = document.getElementById('back-to-top');
@@ -474,7 +474,7 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* =========================
-   6. 移动端菜单（原逻辑不变）
+   6. 移动端菜单
 ========================= */
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -486,7 +486,7 @@ mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hi
 document.addEventListener('DOMContentLoaded', () => {
     renderNotifications();                       // 1. 通知渲染（已排序+图标）
     const statCard = document.querySelector('.stat-card');
-    if (statCard) {                              // 2. 统计动画（可选）
+    if (statCard) {                              // 2. 统计动画
         const statsSection = statCard.parentElement.parentElement;
         const observer = new IntersectionObserver(
             entries => entries.forEach(en => { if (en.isIntersecting) { animateNumbers(); observer.unobserve(en.target); } }),
