@@ -4,7 +4,7 @@
   const mdName   = htmlFile.replace(/\.html?/i, '.md');     // 202510122239.md
 
   // 2. 统一放到 /md/ 目录下
-  const mdFile = './md/' + mdName;                          // ./md/about.md (使用相对路径)
+  const mdFile = './md/' + mdName;                          // ./md/about.md
 
 
   fetch(mdFile)
@@ -17,7 +17,7 @@
 
       let rawHtml = marked.parse(md, { breaks: true, gfm: true });
 
-      /* ---------- 通用元素美化（保持你原来逻辑）---------- */
+      /* ---------- 通用元素美化---------- */
       rawHtml = rawHtml
         .replace(/<h1[^>]*>(.*?)<\/h1>/gi,
           '<h1 class="text-3xl md:text-4xl font-bold text-dark mb-6 flex items-center">' +
