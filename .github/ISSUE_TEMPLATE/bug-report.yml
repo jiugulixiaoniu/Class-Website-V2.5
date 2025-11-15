@@ -68,7 +68,7 @@ body:
         4. 观察控制台报错
     validations:
       required: true
-
+      
   - type: textarea
     id: environment-info
     attributes:
