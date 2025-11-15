@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         感谢您进行 Bug 反馈！请在上方文本框⬆️填写清晰描述问题的标题（避免模糊表述），便于开发者快速定位问题。
-        
+
         > [!important]
         > 🔴 重要提醒：
         > 1. 若需反馈**多个 Bug**，请为每个 Bug 单独创建 Issue，避免混合提交
@@ -30,7 +30,7 @@ body:
       value: |
         ### 📋 Bug 核心信息
         请详细描述遇到的问题，可附上截图、录屏、错误日志等材料。完整的信息将大幅缩短修复周期！
-        
+
         > [!note]
         > 📎 附件上传说明：
         > - 直接拖拽/粘贴文件到输入框即可通过 GitHub 附件系统上传
@@ -43,7 +43,7 @@ body:
     attributes:
       label: 🎯 期望的行为
       description: 详细描述你认为正常情况下应该发生的结果，明确与实际行为的差异
-      placeholder: 
+      placeholder: 例如：点击「导入」按钮后应弹出文件选择框，且能正常解析 Excel 并显示数据。
     validations:
       required: true
 
@@ -52,7 +52,7 @@ body:
     attributes:
       label: ❌ 实际发生的结果
       description: 详细描述实际遇到的异常现象，包括错误提示、页面状态、数据变化等
-      placeholder: 
+      placeholder: 例如：点击「导入」按钮后页面无响应，控制台报错 `Uncaught TypeError: Cannot read properties of undefined`。
     validations:
       required: true
 
@@ -62,7 +62,10 @@ body:
       label: 🔍 重现步骤
       description: 提供精准可复现的操作步骤（越详细越好），确保开发者能快速复现问题
       placeholder: |
-
+        1. 打开首页
+        2. 点击「导入」按钮
+        3. 选择附件中的 Excel 文件
+        4. 观察控制台报错
     validations:
       required: true
 
@@ -77,7 +80,7 @@ body:
         - 浏览器：Chrome 128.0.6613.138
         - 屏幕分辨率：1920×1080
         - 网络环境：校园网（有线）
-        
+
         移动端（如适用）：
         - 设备型号：iPhone 14 Pro
         - 操作系统：iOS 17.5
@@ -93,15 +96,19 @@ body:
       placeholder: |
         例：
         Uncaught TypeError: Cannot read properties of undefined (reading 'import')
-        at HTMLButtonElement.importExcel (index.js:125:30)
-        at HTMLButtonElement.handleClick (index.js:89:18)
+          at HTMLButtonElement.importExcel (index.js:125:30)
+          at HTMLButtonElement.handleClick (index.js:89:18)
+    validations:
+      required: false
 
   - type: textarea
     id: additional-info
     attributes:
       label: 📌 补充信息（可选）
       description: 其他有助于定位问题的信息，如：问题出现频率（必现/偶现）、最近是否有系统更新、尝试过的解决方法及结果等
-      placeholder: 
+      placeholder: 例如：问题必现；昨天更新到 commit abc123 后出现；尝试清除缓存无效。
+    validations:
+      required: false
 
   - type: checkboxes
     id: final-confirmation
