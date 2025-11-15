@@ -1,0 +1,53 @@
+name: 功能请求 | Feature Request
+description: 提交一个功能改进或新功能建议。
+title: （将此栏替换为你的标题）
+labels: ["Feature Request", "待查看", "优先级：无"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您的功能改进建议！请在上方文本框⬆️填写清晰描述问题的标题（避免模糊表述），便于开发者快速理解需求。
+        
+        > [!important]
+        > 🌟 提交建议时，请确保：
+        > 1. 功能改进符合项目的目标和范围（详见[项目文档](https://github.com/jiugulixiaoniu/jyez0902ceg)）
+        > 2. 提供尽可能详细的背景信息和应用场景
+        > 3. 清楚描述改进点带来的潜在价值或影响
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: 📝 问题描述
+      description: 描述当前系统中存在的问题或不足之处，以及该问题对用户的影响
+      placeholder: 
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 💡 建议的解决方案
+      description: 提出一个清晰的解决方案，说明希望系统实现的功能或具体改进点
+      placeholder: 
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 📌 补充信息（可选）
+      description: 提供与功能建议相关的背景信息、参考资料或类似功能的示例（如有）
+      placeholder: 例：其他教育管理系统通常支持多种导出格式，例如 Excel、JSON 和 XML
+
+  - type: checkboxes
+    id: final-confirmation
+    attributes:
+      label: 📝 最终确认
+      description: 提交前请确认以下内容：
+      options:
+        - label: 我已检查该需求未在 [Issues](https://github.com/jiugulixiaoniu/Class-Website-V2.5/issues) 中提交过
+          required: true
+        - label: 我已详细填写了所有必要信息，包括问题描述和建议的解决方案
+          required: true
+        - label: 我已知晓：功能请求的采纳与开发进度由项目维护者评估和决定
+          required: true
