@@ -52,7 +52,7 @@ body:
     attributes:
       label: ❌ 实际发生的结果
       description: 详细描述实际遇到的异常现象，包括错误提示、页面状态、数据变化等
-      placeholder: 例如：点击「导入」按钮后页面无响应，控制台报错 `Uncaught TypeError: Cannot read properties of undefined`。
+      placeholder: 例如：点击「导入」按钮后页面无响应，控制台报错 `Uncaught TypeError：Cannot read properties of undefined`。
     validations:
       required: true
 
@@ -68,7 +68,7 @@ body:
         4. 观察控制台报错
     validations:
       required: true
-      
+
   - type: textarea
     id: environment-info
     attributes:
