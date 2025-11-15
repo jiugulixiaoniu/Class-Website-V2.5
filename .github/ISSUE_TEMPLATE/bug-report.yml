@@ -1,6 +1,6 @@
 name: Bug 反馈 | Bug Report
-description: 在使用 JYEZ-0902 语文学分管理系统的过程中遇到了 Bug。
-title: （将此栏【替换】为你的标题，例：批量导入积分时确认按钮无响应）
+description: 在使用 ClassWebSite 的过程中遇到了 Bug。
+title: （将此栏【替换】为你的标题）
 labels: ["Bug", "待查看", "优先级：无"]
 body:
   - type: markdown
@@ -20,9 +20,8 @@ body:
       label: 提交前检查清单
       description: 为避免重复反馈和无效沟通，请先完成以下检查：
       options:
-        - label: 我已更新到项目最新版本（查看 [最新提交](https://github.com/jiugulixiaoniu/jyez0902ceg/commits/main/)），确认该 Bug 未被修复
-        - label: 我已在 [Issues](https://github.com/jiugulixiaoniu/jyez0902ceg/issues?q=type%3ABug) 中检索关键词，确认该 Bug 未被提交过
-        - label: 我已阅读项目 [数据管理规则](https://github.com/jiugulixiaoniu/jyez0902ceg/blob/main/Sidebar/Rules.html) 和相关文档，确认问题并非操作不当导致
+        - label: 我已更新到项目最新版本（查看 [最新提交](https://github.com/jiugulixiaoniu/Class-Website-V2.5/commits/main/)），确认该 Bug 未被修复
+        - label: 我已在 [Issues](https://github.com/jiugulixiaoniu/Class-Website-V2.5/issues?q=type%3ABug) 中检索关键词，确认该 Bug 未被提交过
         - label: 我已知晓并同意：此处仅用于反馈程序本身的功能 Bug，非程序问题（如使用咨询、需求建议）请通过邮件联系（Lavachicken2512@outlook.com）
           required: true
 
@@ -44,7 +43,7 @@ body:
     attributes:
       label: 🎯 期望的行为
       description: 详细描述你认为正常情况下应该发生的结果，明确与实际行为的差异
-      placeholder: '例：点击"批量导入积分"按钮后，系统应验证文件格式并显示导入进度，成功后更新积分列表并弹出提示'
+      placeholder: 
     validations:
       required: true
 
@@ -53,7 +52,7 @@ body:
     attributes:
       label: ❌ 实际发生的结果
       description: 详细描述实际遇到的异常现象，包括错误提示、页面状态、数据变化等
-      placeholder: '例：点击"批量导入积分"按钮后，页面无任何响应，控制台（F12）显示 "Uncaught TypeError: Cannot read properties of undefined (reading ''import'')" 错误'
+      placeholder: 
     validations:
       required: true
 
@@ -63,11 +62,7 @@ body:
       label: 🔍 重现步骤
       description: 提供精准可复现的操作步骤（越详细越好），确保开发者能快速复现问题
       placeholder: |
-        1. 登录系统，进入「团队积分管理」页面
-        2. 点击顶部导航栏的「批量导入」按钮
-        3. 选择本地文件 "清华队-2025-10-积分表.xlsx"（格式符合要求）
-        4. 点击「确认导入」按钮
-        5. 观察到页面无响应，未显示任何反馈信息
+
     validations:
       required: true
 
@@ -78,7 +73,7 @@ body:
       description: 请提供完整的设备和浏览器信息，避免因环境差异导致无法复现
       placeholder: |
         桌面端：
-        - 操作系统：Windows 11 专业版 22H2
+        - 操作系统：Windows 11 专业版 23H2
         - 浏览器：Chrome 128.0.6613.138
         - 屏幕分辨率：1920×1080
         - 网络环境：校园网（有线）
@@ -106,7 +101,7 @@ body:
     attributes:
       label: 📌 补充信息（可选）
       description: 其他有助于定位问题的信息，如：问题出现频率（必现/偶现）、最近是否有系统更新、尝试过的解决方法及结果等
-      placeholder: 例：该问题仅在导入超过 50 行数据的 Excel 时出现，导入少量数据正常；已尝试更换浏览器，问题依然存在
+      placeholder: 
 
   - type: checkboxes
     id: final-confirmation
