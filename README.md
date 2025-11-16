@@ -29,6 +29,8 @@
 非商业性使用 — 你不得将本作品用于商业用途
 简单来说，只要您不将它用于商业用途，并且署上原作者的名字，您可以将它用于任何用途（具体还请查看CC BY-NC 4.0 License）
 
+Attention:我们正在进行许可证更换的意见征集投票，可以转到最下方查看[许可证变更征集意见](https://github.com/jiugulixiaoniu/Class-Website-V2.5/discussions/12)
+
 ---
 
 # 贡献指南 | Contribution Guidelines
