@@ -1,7 +1,8 @@
 # ClassWebsite V2.5 📚
 
-![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
-![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/JYEZ-0902-Chinese-Evaluation-Group.io)
+![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/Class-Website-V2.5)
+![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/Class-Website-V2.5)
+![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/Class-Website-V2.5)
 
 查看宣传片：[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
 
@@ -85,5 +86,45 @@
 感谢您的理解与支持，让我们共同维护健康的开源生态！
 
 ---
+
+## 最近活动
+
+## 关于 ClassWebsite 项目许可证变更的社区意向征集（2025年11月15日 00:00 UTC 至 2025年12月15日 00:00 UTC）
+
+---
+
+大家好！
+
+ClassWebsite 项目目前采用 **CC BY-NC 4.0** 许可证。我们收到部分社区成员的反馈，认为该许可证的限制（特别是禁止商用）可能过于严格，影响了项目的广泛应用与集成。因此，我们希望就修改项目许可证一事，征集广大社区用户的意向。
+
+本次发起的是一次 **社区意向投票**，旨在了解社区的整体风向。最终的许可证变更是一项严肃的法律程序，必须获得**所有代码贡献者（以 Git 记录为准）的书面同意**（遵循 CC BY-NC 4.0 第 7 条规定）。
+
+### 投票资格
+- **所有人**均可参与本次意向投票并发表意见。
+- 项目管理员（@jiugulixiaoniu）有责任在投票通过后，组织并执行后续的贡献者同意书收集工作。
+
+### 选项（单选）
+1.  **保持 CC BY-NC 4.0 许可证**
+    - **影响**：继续禁止任何形式的商业使用。待项目功能稳定（例如 v2.7 版本）后，再重新讨论许可证事宜。
+
+2.  **提议变更为 AGPL-3.0 许可证**
+    - **影响**：允许商用，但要求基于本项目提供网络服务的衍生产品必须开源其修改后的代码。这是一种在“保护开源”和“允许商用”之间取得平衡的强版权许可证。
+    - **后续流程**：若此选项在意向投票中胜出，项目团队将启动正式的换证流程，通过 GitHub Issue、邮件等方式逐一联系所有在本项目的贡献名单中列举的贡献者，寻求其书面同意。**只有在获得每一位贡献者明确同意后**，许可证变更才会生效。
+
+### 投票方式
+- **平台**：GitHub Discussion参与投票。
+- **时长**：**2025年11月15日 00:00 UTC 至 2025年12月15日 00:00 UTC**（共30天）。
+- **结果公示**：投票结束后7日内（2025年12月27日前），我们将置顶公布投票结果。
+
+### 结果处理与后续步骤
+- **若选项1胜出**：我们将尊重社区意向，继续使用 CC BY-NC 4.0 许可证，并在未来项目达到 v2.7 等里程碑时再次发起讨论。
+- **若选项2胜出**：这将被视为社区支持更换许可证的明确信号。我们将立即启动以下工作：
+    1.  公布完整的贡献者名单（基于 Git 记录）。
+    2.  通过多种渠道尝试联系所有贡献者，并公开追踪同意状态。
+    3.  我们的目标是尽最大努力争取到100%的同意。我们理解这可能充满挑战，对于无法联系或拒绝同意的贡献者，我们将探索所有可能的方案（如代码重写），并随时向社区透明地同步进展。
+    4.  **只有在获得所有必要同意后**，才会在之后发布的新版本（如 V2.6.4）中正式更换许可证。
+
+我们坚信，透明和协作是开源社区的核心。感谢每一位为 ClassWebsite 做出贡献的开发者，也感谢所有社区成员的关注与支持！您的每一票和每一个意见都至关重要。
+
 
 © 2025 JGL STUDIO. 保留所有权利。
