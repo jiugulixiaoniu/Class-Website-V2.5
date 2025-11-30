@@ -10,7 +10,7 @@ body:
         
         > [!important]
         > 🌟 提交建议时，请确保：
-        > 1. 功能改进符合项目的目标和范围（详见[项目文档](https://github.com/jiugulixiaoniu/jyez0902ceg)）
+        > 1. 功能改进符合项目的目标和范围（详见[项目文档](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite)）
         > 2. 提供尽可能详细的背景信息和应用场景
         > 3. 清楚描述改进点带来的潜在价值或影响
 
@@ -45,7 +45,7 @@ body:
       label: 📝 最终确认
       description: 提交前请确认以下内容：
       options:
-        - label: 我已检查该需求未在 [Issues](https://github.com/jiugulixiaoniu/Class-Website-V2.5/issues) 中提交过
+        - label: 我已检查该需求未在 [Issues](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/issues) 中提交过
           required: true
         - label: 我已详细填写了所有必要信息，包括问题描述和建议的解决方案
           required: true
