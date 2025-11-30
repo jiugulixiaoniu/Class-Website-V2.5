@@ -72,45 +72,164 @@ body {
    按钮样式
 ========================= */
 .btn-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50;
+    background-color: #3B82F6;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.btn-primary:hover {
+    background-color: rgb(59 130 246 / 0.9);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.btn-primary:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 #0000;
+    --tw-ring-opacity: 0.5;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
 .btn-secondary {
-    @apply bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-secondary/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-secondary/50;
+    background-color: #10B981;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(16 185 129 / 0.9);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.btn-secondary:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 #0000;
+    --tw-ring-opacity: 0.5;
+    --tw-ring-color: rgb(16 185 129 / var(--tw-ring-opacity));
 }
 
 .btn-outline {
-    @apply border border-primary text-primary px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50;
+    border: 1px solid #3B82F6;
+    color: #3B82F6;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.btn-outline:hover {
+    background-color: rgb(59 130 246 / 0.1);
+}
+
+.btn-outline:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 #0000;
+    --tw-ring-opacity: 0.5;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
 /* =========================
    卡片样式
 ========================= */
 .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .card-header {
-    @apply px-6 py-4 border-b border-gray-100;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(243 244 246 / 1);
 }
 
 .card-body {
-    @apply px-6 py-4;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .card-footer {
-    @apply px-6 py-4 border-t border-gray-100 bg-gray-50;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid rgb(243 244 246 / 1);
+    background-color: rgb(249 250 251 / 1);
 }
 
 /* =========================
    表单样式
 ========================= */
 .form-control {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors duration-200;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(209 213 219 / 1);
+    border-radius: 0.5rem;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+.form-control:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 #0000;
+    --tw-ring-opacity: 0.5;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
+    border-color: #3B82F6;
 }
 
 .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-1;
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: rgb(55 65 81 / 1);
+    margin-bottom: 0.25rem;
 }
 
 /* =========================
@@ -145,15 +264,23 @@ body {
 ========================= */
 @media (max-width: 768px) {
     .section-title {
-        @apply text-2xl md:text-3xl;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
     }
 
     .grid-cols-md-2 {
-        @apply grid-cols-1;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
     .grid-cols-md-3 {
-        @apply grid-cols-1;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
@@ -161,44 +288,95 @@ body {
    其他组件样式
 ========================= */
 .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
 }
 
 .badge-primary {
-    @apply bg-primary/10 text-primary;
+    background-color: rgb(59 130 246 / 0.1);
+    color: #3B82F6;
 }
 
 .badge-secondary {
-    @apply bg-secondary/10 text-secondary;
+    background-color: rgb(16 185 129 / 0.1);
+    color: #10B981;
 }
 
 .badge-accent {
-    @apply bg-accent/10 text-accent;
+    background-color: rgb(139 92 246 / 0.1);
+    color: #8B5CF6;
 }
 
 /* 分隔线样式 */
 .divider {
-    @apply w-full h-px bg-gray-200 my-8;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(229 231 235 / 1);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* 列表样式 */
 .list-item {
-    @apply flex items-center py-2 border-b border-gray-100 last:border-0;
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(243 244 246 / 1);
+}
+
+.list-item:last-child {
+    border-bottom: none;
 }
 
 /* 表格样式 */
 .table {
-    @apply min-w-full divide-y divide-gray-200;
+    min-width: 100%;
+    border-collapse: collapse;
 }
 
 .table th {
-    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(107 114 128 / 1);
 }
 
 .table td {
-    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-500;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(107 114 128 / 1);
 }
 
 .table tr {
-    @apply bg-white divide-y divide-gray-200 hover:bg-gray-50 transition-colors duration-150;
+    background-color: #fff;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.table tr:hover {
+    background-color: rgb(249 250 251 / 1);
 }
