@@ -1,8 +1,8 @@
 # ClassWebsite V2.5 📚
 
-![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/Class-Website-V2.5)
-![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/Class-Website-V2.5)
-![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/Class-Website-V2.5)
+![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/CWBS-ClassWebsite)
+![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/CWBS-ClassWebsite)
+![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/CWBS-ClassWebsite)
 
 查看宣传片：[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
 

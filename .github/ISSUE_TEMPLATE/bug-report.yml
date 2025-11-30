@@ -20,8 +20,8 @@ body:
       label: 提交前检查清单
       description: 为避免重复反馈和无效沟通，请先完成以下检查：
       options:
-        - label: 我已更新到项目最新版本（查看 [最新提交](https://github.com/jiugulixiaoniu/Class-Website-V2.5/commits/main/)），确认该 Bug 未被修复
-        - label: 我已在 [Issues](https://github.com/jiugulixiaoniu/Class-Website-V2.5/issues?q=type%3ABug) 中检索关键词，确认该 Bug 未被提交过
+        - label: 我已更新到项目最新版本（查看 [最新提交](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/commits/main/)），确认该 Bug 未被修复
+        - label: 我已在 [Issues](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/issues?q=type%3ABug) 中检索关键词，确认该 Bug 未被提交过
         - label: 我已知晓并同意：此处仅用于反馈程序本身的功能 Bug，非程序问题（如使用咨询、需求建议）请通过邮件联系（Lavachicken2512@outlook.com）
           required: true
 
