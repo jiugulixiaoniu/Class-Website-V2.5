@@ -29,7 +29,7 @@
 非商业性使用 — 你不得将本作品用于商业用途
 简单来说，只要您不将它用于商业用途，并且署上原作者的名字，您可以将它用于任何用途（具体还请查看CC BY-NC 4.0 License）
 
-Attention:我们正在进行许可证更换的意见征集投票，可以转到最下方查看[许可证变更征集意见](https://github.com/jiugulixiaoniu/Class-Website-V2.5/discussions/12)
+Attention:我们正在进行许可证更换的意见征集投票，可以转到最下方查看[许可证变更征集意见](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/discussions/12)
 
 ---
 
@@ -114,7 +114,7 @@ ClassWebsite 项目目前采用 **CC BY-NC 4.0** 许可证。我们收到部分�
     - **后续流程**：若此选项在意向投票中胜出，项目团队将启动正式的换证流程，通过 GitHub Issue、邮件等方式逐一联系所有在本项目的贡献名单中列举的贡献者，寻求其书面同意。**只有在获得每一位贡献者明确同意后**，许可证变更才会生效。
 
 ### 投票方式
-- **平台**：GitHub Discussion参与投票[许可证变更征集意见](https://github.com/jiugulixiaoniu/Class-Website-V2.5/discussions/12)。
+- **平台**：GitHub Discussion参与投票[许可证变更征集意见](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/discussions/12)。
 - **时长**：**2025年11月15日 00:00 UTC 至 2025年12月15日 00:00 UTC**（共30天）。
 - **结果公示**：投票结束后7日内（2025年12月22日前），我们将置顶公布投票结果。
 
@@ -147,7 +147,7 @@ ClassWebsite 项目目前采用 **CC BY-NC 4.0** 许可证。我们收到部分�
 
 3. **项目决策**：技术路线与许可证变更由核心维护者提案，经社区讨论后执行。重大决策将公示 7 天征询意见。
 
-4.**最近活动** 我们正在进行许可证修改[许可证变更征集意见](https://github.com/jiugulixiaoniu/Class-Website-V2.5/discussions/12)
+4.**最近活动** 我们正在进行许可证修改[许可证变更征集意见](https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/discussions/12)
 
 ### 特别致谢
 
